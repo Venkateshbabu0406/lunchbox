@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="menu-header">Confirm Selection</header>
+
+        <div class="confirm-output" id="output-area"></div>
+
+        <a href="days.html" class="nav-button">All done</a>
+        <a href="index.html" class="nav-button run-button">Run (Go to Welcome)</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const outputArea = document.getElementById('output-area');
+            const storedData = localStorage.getItem('lunchAppSelection');
+
+            if (storedData) {
+                const selections = JSON.parse(storedData);
+                const summary = `
+Selection for ${selections.day}:
+-----------------------------
+Name: ${selections.name}
+Class: ${selections.class}
+Roll No: ${selections.roll}
+
+Main Menu Items (3 max):
+${selections.mainItems}
+
+Dessert:
+${selections.dessert}
+-----------------------------
+Your choices have been saved!
+`;
+                outputArea.textContent = summary;
+            } else {
+                outputArea.textContent = "No selections found. Please choose a menu day first.";
+            }
+
+            document.querySelector('.nav-button:first-of-type').addEventListener('click', () => {
+                localStorage.removeItem('lunchAppSelection');
+            });
+        });
+    </script>
+</body>
+</html>
