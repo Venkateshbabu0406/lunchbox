@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Lunch Box App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+    /* Body and overall layout */
     body {
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #f8f9fa, #e2f0fb);
@@ -17,6 +19,7 @@
       min-height: 100vh;
     }
 
+    /* Card container */
     .container {
       width: 90%;
       max-width: 500px;
@@ -37,6 +40,7 @@
     h1, h2 {
       color: #2c3e50;
       margin-bottom: 20px;
+      word-wrap: break-word;
     }
 
     p {
@@ -44,6 +48,7 @@
       color: #555;
     }
 
+    /* Buttons */
     button {
       padding: 12px 25px;
       margin: 10px;
@@ -55,6 +60,7 @@
       font-size: 16px;
       font-weight: 500;
       transition: all 0.3s ease;
+      min-width: 120px;
     }
 
     button:hover {
@@ -64,6 +70,7 @@
 
     .hidden { display: none; }
 
+    /* Food options */
     .food-options {
       text-align: left;
       margin: 20px auto;
@@ -99,14 +106,36 @@
       font-weight: 500;
       color: #2c3e50;
       margin: 20px 0;
+      word-wrap: break-word;
     }
 
-    /* Responsive */
+    /* Responsive: Mobile & small screens */
     @media (max-width: 600px) {
-      .container { padding: 20px; width: 95%; }
-      button { width: 90%; }
-      .food-options { width: 90%; }
+      .container {
+        padding: 20px;
+        width: 95%;
+        margin: 20px auto;
+      }
+
+      button {
+        width: 100%;
+        margin: 8px 0;
+        font-size: 16px;
+      }
+
+      .food-options {
+        width: 95%;
+      }
+
+      h1, h2 {
+        font-size: 20px;
+      }
+
+      p, .food-options label {
+        font-size: 14px;
+      }
     }
+
   </style>
 </head>
 <body>
@@ -205,5 +234,6 @@
       });
     }
   </script>
+
 </body>
 </html>
